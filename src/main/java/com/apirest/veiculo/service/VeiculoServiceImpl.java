@@ -22,4 +22,27 @@ public class VeiculoServiceImpl implements VeiculoService {
     public Veiculo buscarVeiculoporId(Long id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException());
     }
+
+    @Override
+    public Veiculo salvaVeiculo(Veiculo veiculo) {
+        return repository.save(veiculo);
+    }
+
+   @Override
+    public Veiculo atualizarVeiculoporId(Long id, Veiculo veiculo) {
+        return repository.findById(id)
+                .map(search -> search = Veiculo.builder()
+                .id(veiculo.getId())
+                .ano(veiculo.getAno())
+                .fabricante(veiculo.getFabricante())
+                .modelo(veiculo.getModelo())
+                .placa(veiculo.getPlaca()).build())
+                .orElseThrow(() -> new RuntimeException());
+    }
+
+    @Override
+    public void deletaVeiculo(Long id) {
+        repository.deleteById(id);
+
+    }
 }

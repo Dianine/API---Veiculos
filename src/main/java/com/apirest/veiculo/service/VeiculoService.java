@@ -7,6 +7,9 @@ import java.util.List;
 public interface VeiculoService {
     List<Veiculo> listarVeiculos();
     Veiculo buscarVeiculoporId(Long id);
+    Veiculo salvaVeiculo(Veiculo veiculo);
+    Veiculo atualizarVeiculoporId(Long id, Veiculo veiculo);
+    void  deletaVeiculo(Long id);
 
 }
 
