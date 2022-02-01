@@ -24,6 +24,7 @@ public class VeiculoController {
     public Veiculo salvarVeiculo(@RequestBody Veiculo veiculo){
         return service.salvaVeiculo(veiculo);
     }
+
     @PutMapping("/veiculo/{id}")
     public Veiculo atualizarVeiculo(@PathVariable ("id") long id, @RequestBody Veiculo veiculo){
         return service.atualizarVeiculoporId(id,veiculo);
